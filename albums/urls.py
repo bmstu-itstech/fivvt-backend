@@ -1,13 +1,13 @@
 from django.urls import include, path
 from rest_framework import routers
 
-from board.router import BoardViewSet
+from albums.router import AlbumViewSet
 
 
 router = routers.DefaultRouter()
-router.register('', BoardViewSet)
+router.register('', AlbumViewSet)
 
-app_name = 'board'
+app_name = 'albums'
 urlpatterns = [
     path('', include(router.urls)),
 ]

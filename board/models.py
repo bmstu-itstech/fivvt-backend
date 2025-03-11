@@ -22,8 +22,11 @@ class MemberOfBoard(models.Model):
         help_text='Краткая биография члена правления Фонда',
     )
     image = models.ImageField(
-        upload_to='board',
+        upload_to='board/%Y/%m/%d',
     )
+
+    def __str__(self):
+        return self.full_name
 
     class Meta:
         verbose_name = 'member of board'
