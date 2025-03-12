@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'board',
     'albums',
+    'hospitals',
 ]
 
 MIDDLEWARE = [
