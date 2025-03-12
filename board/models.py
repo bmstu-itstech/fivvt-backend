@@ -5,18 +5,13 @@ class MemberOfBoard(models.Model):
     """
     Член правления Фонда.
     """
-
-    id = models.BigAutoField(
-        primary_key=True,
-        serialize=False,
-    )
     full_name = models.CharField(
         max_length=100,
         help_text='Полное имя члена правления Фонда, максимум 100 символов',
     )
     post = models.CharField(
         max_length=100,
-        help_text='Должность члена правления Фонда, например, Председатель',
+        help_text='Должность члена правления Фонда, например, председатель',
     )
     biography = models.TextField(
         help_text='Краткая биография члена правления Фонда',

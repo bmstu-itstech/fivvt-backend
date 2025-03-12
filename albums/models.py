@@ -5,11 +5,6 @@ class Album(models.Model):
     """
     Альбом с фотографиями с мероприятий.
     """
-
-    id = models.BigAutoField(
-        primary_key=True,
-        serialize=False,
-    )
     title = models.CharField(
         max_length=100,
         help_text='Название альбом, обычно совпадает с названием мероприятия, например: Мероприятие, посвященное 20-летию создания РРОФИВА'
@@ -19,15 +14,10 @@ class Album(models.Model):
         return self.title
 
 
-class Photo(models.Model):
+class AlbumPhoto(models.Model):
     """
     Фотография в альбоме.
     """
-
-    id = models.BigAutoField(
-        primary_key=True,
-        serialize=False,
-    )
     image = models.ImageField(
         upload_to='albums/%Y/%m/%d',
     )

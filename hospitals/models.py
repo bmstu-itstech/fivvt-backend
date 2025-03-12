@@ -5,11 +5,6 @@ class Hospital(models.Model):
     """
     Госпитали для ветеранов войны
     """
-
-    id = models.BigAutoField(
-        primary_key=True,
-        serialize=False,
-    )
     name = models.CharField(
         max_length=100,
         help_text='Полное название госпиталя',
@@ -31,7 +26,6 @@ class HospitalPhone(models.Model):
     """
     Телефон для связи с госпиталем для ветеранов
     """
-
     phone = models.CharField(
         primary_key=True,
         max_length=12,
@@ -51,7 +45,6 @@ class HospitalPhoto(models.Model):
     """
     Фотография госпиталя для ветеранов
     """
-
     image = models.ImageField(
         upload_to='photos/%Y/%m/%d',
         help_text='Фотография госпиталя с улицы для упрощения поиска',

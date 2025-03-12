@@ -1,9 +1,9 @@
 from django.contrib import admin
 
-from albums.models import Album, Photo
+from albums.models import Album, AlbumPhoto
 
 
-@admin.register(Photo)
+@admin.register(AlbumPhoto)
 class PhotoAdmin(admin.ModelAdmin):
     list_display = (
         'id',
@@ -12,7 +12,7 @@ class PhotoAdmin(admin.ModelAdmin):
 
 
 class PhotoInline(admin.TabularInline):
-    model = Photo
+    model = AlbumPhoto
 
 
 @admin.register(Album)
