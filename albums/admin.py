@@ -1,24 +1,21 @@
 from django.contrib import admin
 
-from albums.models import Album, AlbumPhoto
+from albums.models import Album, AlbumPhoto, AlbumMainPhoto
 
 
-@admin.register(AlbumPhoto)
-class PhotoAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
-        'image',
-    )
-
-
-class PhotoInline(admin.TabularInline):
+class AlbumPhotoInline(admin.TabularInline):
     model = AlbumPhoto
+
+
+class AlbumMainPhotoInline(admin.TabularInline):
+    model = AlbumMainPhoto
 
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
     inlines = [
-        PhotoInline,
+        AlbumPhotoInline,
+        AlbumMainPhotoInline,
     ]
 
     list_display = (

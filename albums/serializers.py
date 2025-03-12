@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from albums.models import Album, AlbumPhoto
+from albums.models import Album, AlbumPhoto, AlbumMainPhoto
 
 
-class PhotoSerializer(serializers.ModelSerializer):
+class AlbumPhotoSerializer(serializers.ModelSerializer):
     class Meta:
         model = AlbumPhoto
         fields = (
@@ -12,8 +12,19 @@ class PhotoSerializer(serializers.ModelSerializer):
         )
 
 
+class AlbumMainPhotoSerializer(serializers.ModelSerializer):
+    photo = AlbumPhotoSerializer(read_only=True)
+
+    class Meta:
+        model = AlbumMainPhoto
+        fields = (
+            'photo',
+        )
+
+
 class AlbumSerializer(serializers.ModelSerializer):
-    photos = PhotoSerializer(many=True)
+    photos = AlbumPhotoSerializer(many=True)
+    main_photo = AlbumMainPhotoSerializer()
 
     class Meta:
         model = Album
@@ -21,4 +32,5 @@ class AlbumSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'photos',
+            'main_photo',
         )
