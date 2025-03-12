@@ -14,9 +14,12 @@ class MemberOfBoard(models.Model):
         help_text='Должность члена правления Фонда, например, председатель',
     )
     biography = models.TextField(
+        blank=True,
         help_text='Краткая биография члена правления Фонда',
     )
     image = models.ImageField(
+        null=True,
+        blank=True,
         upload_to='board/%Y/%m/%d',
     )
 
