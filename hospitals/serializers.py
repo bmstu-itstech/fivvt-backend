@@ -19,6 +19,9 @@ class HospitalPhoneSerializer(serializers.ModelSerializer):
             'phone',
             'comment',
         )
+        extra_kwargs = {
+            'comment': { 'required': False },
+        }
 
 
 class HospitalSerializer(serializers.ModelSerializer):
@@ -34,9 +37,8 @@ class HospitalSerializer(serializers.ModelSerializer):
             'url',
             'url_on_map',
             'phones',
-            'photo',
+            'photos',
         )
         extra_kwargs = {
             'url': { 'required': False },
-            'photo': { 'required': False },
         }
