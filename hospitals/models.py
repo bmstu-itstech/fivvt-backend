@@ -29,7 +29,12 @@ class HospitalPhone(models.Model):
     phone = models.CharField(
         primary_key=True,
         max_length=12,
-        help_text = 'Телефон для связи с госпиталем в формате: +79999999999',
+        help_text='Телефон для связи с госпиталем в формате: +79999999999',
+    )
+    comment = models.CharField(
+        blank=True,
+        max_length=63,
+        help_text='Комментарий к номеру телефона, например, Справочная',
     )
     hospital = models.ForeignKey(
         Hospital,
@@ -49,10 +54,10 @@ class HospitalPhoto(models.Model):
         upload_to='photos/%Y/%m/%d',
         help_text='Фотография госпиталя с улицы для упрощения поиска',
     )
-    hospital = models.OneToOneField(
+    hospital = models.ForeignKey(
         Hospital,
         on_delete=models.CASCADE,
-        related_name='photo',
+        related_name='photos',
     )
 
     def __str__(self):

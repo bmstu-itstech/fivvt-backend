@@ -17,12 +17,13 @@ class HospitalPhoneSerializer(serializers.ModelSerializer):
         model = HospitalPhone
         fields = (
             'phone',
+            'comment',
         )
 
 
 class HospitalSerializer(serializers.ModelSerializer):
-    photo = HospitalPhotoSerializer(required=False)
-    phones = serializers.StringRelatedField(many=True)
+    photos = HospitalPhotoSerializer(required=False, many=True)
+    phones = HospitalPhoneSerializer(many=True)
 
     class Meta:
         model = Hospital

@@ -3,14 +3,6 @@ from django.contrib import admin
 from hospitals.models import HospitalPhoto, Hospital, HospitalPhone
 
 
-@admin.register(HospitalPhoto)
-class HospitalPhotoAdmin(admin.ModelAdmin):
-    list_display = (
-        'id',
-        'image',
-    )
-
-
 class HospitalPhotoInline(admin.TabularInline):
     model = HospitalPhoto
 
