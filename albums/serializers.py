@@ -9,6 +9,7 @@ class AlbumPhotoSerializer(serializers.ModelSerializer):
         fields = (
             'id',
             'image',
+            'uploaded_at',
         )
 
 
@@ -33,4 +34,5 @@ class AlbumSerializer(serializers.ModelSerializer):
             'title',
             'photos',
             'main_photo',
+            'created_at',
         )
